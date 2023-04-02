@@ -1,0 +1,14 @@
+.jake_header {
+    text-align:center;
+    margin: 2rem 0;
+}
+.jake_footer {
+    text-align:center;
+    margin-top: 2rem;
+}
+.jake_logo {
+    font-family: 'Rajdhani', sans-serif;
+}
+.jake_footer_button {
+    font-size: .6rem;
+}
