@@ -4,8 +4,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 
+from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 
 # Create your views here.
@@ -36,5 +37,12 @@ class AccountCreateView(CreateView):
 
 class AccountDetailView(DetailView):
     model = User
-    context_object_name = 'target_user' # 인자로 넘겨 받은 pk와 일치하는 Model (여기선 User) 객체를 target_user 란 변수로 템플릿에 넘겨준다
+    context_object_name = 'target_user'  # 인자로 넘겨 받은 pk와 일치하는 Model (여기선 User) 객체를 target_user 란 변수로 템플릿에 넘겨준다
     template_name = 'accountapp/detail.html'
+
+
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = AccountUpdateForm
+    success_url = reverse_lazy('accountapp:hello_world')  # 계정 만드는데 성공했다면 어느 URL로 redirect 될것인가
+    template_name = 'accountapp/update.html'
