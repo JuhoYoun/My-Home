@@ -13,6 +13,9 @@
         <a href="{% url 'accountapp:login' %}">
             <span>Login</span>
         </a>
+        <a href="{% url 'accountapp:create' %}">
+            <span>Sign Up</span>
+        </a>
         {% else %}
         <!-- Login/Logout 할 때 get 방식으로 현재 위치 값을 가지는 next라는 인자를 넘겨줄 수 있다. Login/Logout 후 원래 위치로 돌아온다.-->
         <a href="{% url 'accountapp:detail' pk=user.pk %}">

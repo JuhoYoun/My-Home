@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 
-from accountapp.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView
+from accountapp.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
 
 # app_name 변수를 지정하는 이유는 후에 "accountapp:hello_world" 같 값을 input 으로 http://127.0.0.1:8000/account/hello_world 같은
 # url 을 반환하는 함수를 쓰기 위함이다.
@@ -31,4 +31,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('detail/<int:pk>', AccountDetailView.as_view(), name='detail'),
     path('update/<int:pk>', AccountUpdateView.as_view(), name='update'),
+    path('delete/<int:pk>', AccountDeleteView.as_view(), name='delete'),
 ]
