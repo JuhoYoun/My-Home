@@ -19,55 +19,26 @@
   }
 
 </style>
-
+{% if article_list %}
 <div class="container">
-  <div class="item1">
-    <img src="https://picsum.photos/200/300" alt="">
-  </div>
-  <div class="item2">
-    <img src="https://picsum.photos/260/320" alt="">
-  </div>
-  <div class="item3">
-    <img src="https://picsum.photos/250/330" alt="">
-  </div>
-  <div class="item4">
-    <img src="https://picsum.photos/200/320" alt="">
-  </div>
-  <div class="item5">
-    <img src="https://picsum.photos/240/360" alt="">
-  </div>
-  <div class="item6">
-    <img src="https://picsum.photos/300/300" alt="">
-  </div>
-  <div class="item7">
-    <img src="https://picsum.photos/280/300" alt="">
-  </div>
-  <div class="item8">
-    <img src="https://picsum.photos/230/330" alt="">
-  </div>
-  <div class="item9">
-    <img src="https://picsum.photos/300/200" alt="">
-  </div>
-  <div class="item10">
-    <img src="https://picsum.photos/300/360" alt="">
-  </div>
-  <div class="item11">
-    <img src="https://picsum.photos/260/220" alt="">
-  </div>
-  <div class="item12">
-    <img src="https://picsum.photos/300/210" alt="">
-  </div>
-  <div class="item13">
-    <img src="https://picsum.photos/290/320" alt="">
-  </div>
+  {% for article in article_list %}
+  <a href="{% url 'articleapp:detail' pk=article.pk %}">
+    {% include 'snippets/card.html' with article=article %}  <!--snippet.card.html 의 코드를 불러온다. 현재 context의 article은 card.html 코드 내의 article과 같다고 설정한다-->
+  </a>
+  {% endfor %}
 </div>
+<script src="{% static 'js/magicgrid.js' %}"></script>
 
+{% else %}
+<div style="text-align: center;">
+  <h1>No Articles YET!</h1>
+</div>
+{% endif %}
+{% include 'snippets/pagination.html' with page_obj=page_obj %}
 <div style="text-align: center;">
   <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
     Create Article
   </a>
 </div>
 
-
-<script src="{% static 'js/magicgrid.js' %}"></script>
 {% endblock %}
