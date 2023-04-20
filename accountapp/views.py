@@ -60,7 +60,7 @@ class AccountUpdateView(UpdateView):
     #
     # def post(self, *args, **kwargs):
     #     if self.request.user.is_authenticated and self.get_object() == self.request.user:
-    #         return super().get(*args, **kwargs)
+    #         return super().post(*args, **kwargs)
     #     else:
     #         return HttpResponseForbidden()
 
@@ -80,6 +80,6 @@ class AccountDeleteView(DeleteView):
     #
     # def post(self, *args, **kwargs):
     #     if self.request.user.is_authenticated and self.get_object() == self.request.user:
-    #         return super().get(*args, **kwargs)
+    #         return super().post(*args, **kwargs)
     #     else:
     #         return HttpResponseForbidden()
