@@ -5,11 +5,14 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidde
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
+from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+
+from articleapp.models import Article
 
 has_ownership = [account_ownership_required, login_required]
 # Create your views here.
@@ -38,10 +41,16 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/create.html'
 
 
-class AccountDetailView(DetailView):
+class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     context_object_name = 'target_user'  # 인자로 넘겨 받은 pk와 일치하는 Model (여기선 User) 객체를 target_user 란 변수로 템플릿에 넘겨준다
     template_name = 'accountapp/detail.html'
+
+    paginate_by = 25
+
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(writer=self.get_object())
+        return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
