@@ -8,12 +8,24 @@ WORKDIR /home/My-Home/
 
 RUN pip install -r requirements.txt
 
-RUN echo "SECRET_KEY=django-insecure--5ej32jnwnzn%jv$gb)z@=e1c@(lvtha!1&o9o9%2z4p4_n16s" > .env
-
-RUN python manage.py migrate
+RUN pip install mysqlclient
 
 RUN python manage.py collectstatic
 
 EXPOSE 8000
 
-CMD ["gunicorn", "pinterest.wsgi", "--bind", "0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py migrate --settings=pinterest.settings.deploy && gunicorn pinterest.wsgi --env DJANGO_SETTINGS_MODULE=pinterest.settings.deploy --bind 0.0.0.0:8000"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
