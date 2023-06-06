@@ -89,3 +89,6 @@ media/
 
 # aws pem key
 aws_jake.pem
+
+# .DS_Store
+.DS_Store
