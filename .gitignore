@@ -86,3 +86,6 @@ db.sqlite3
 .idea/
 __pycache__/
 media/
+
+# aws pem key
+aws_jake.pem
