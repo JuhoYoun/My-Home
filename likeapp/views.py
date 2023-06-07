@@ -27,7 +27,7 @@ def db_transaction(user, article):
 @method_decorator(login_required, 'get')
 class LikeArticleView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
-        return reverse('articleapp:detail', kwargs={'pk': kwargs['pk']})
+        return reverse('articleapp:detail', kwargs={'pk': kwargs['pk']}) # kwargs['pk'] 대신 article.pk 로 써도 된다
 
     def get(self, *args, **kwargs):
         user = self.request.user
