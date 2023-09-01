@@ -19,9 +19,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from articleapp.views import ArticleListView
+from landingpageapp.views import HomePageView
 
 urlpatterns = [
-    path('', ArticleListView.as_view(), name='home'),
+    # path('', ArticleListView.as_view(), name='home'),
+    path('', HomePageView, name='home'),
     path("admin/", admin.site.urls),
     path("accounts/", include('accountapp.urls')),
     path("profiles/", include('profileapp.urls')),

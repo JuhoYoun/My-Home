@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "projectapp",
     "subscribeapp",
     "likeapp",
+    "landingpageapp",
 ]
 
 MIDDLEWARE = [

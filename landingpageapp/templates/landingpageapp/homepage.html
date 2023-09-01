@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<!-- Adding a link to the Bootstrap CSS for styling -->
+
+<!-- Portfolio Section-->
+<section class="bg-light py-5">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="text-center text-uppercase text-dark mb-5">Welcome!</h2>
+
+        <div class="container text-center mb-5">
+            <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                Welcome to my website!</p>
+            <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                I've crafted this space for you to read and write posts on various topics, interacting through comments and likes.
+            </p>
+            <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                Feel free to explore and test! I'm eager to hear your feedback.
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="text-center text-uppercase text-dark mb-5">Tech Stack behind this website</h2>
+
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto">
+                <ul class="list-group text-center">
+                    <li class="list-group-item" style="background-color: #48A774; color: black;">Django</li>
+                    <li class="list-group-item" style="background-color: #F7DF1E; color: black;">JavaScript, Bootstrap</li>
+                    <li class="list-group-item" style="background-color: #2496ED; color: black;">Docker</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 me-auto">
+                <ul class="list-group text-center">
+                    <li class="list-group-item" style="background-color: #F29111; color: black;">MySQL</li>
+                    <li class="list-group-item" style="background-color: #269539; color: black;">Nginx</li>
+                    <li class="list-group-item" style="background-color: #3488BF; color: black;">Certbot</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
