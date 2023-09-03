@@ -129,4 +129,4 @@ LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # HTTPS related setting
-SECURE_SSL_REDIRECT = True
+CSRF_TRUSTED_ORIGINS = ["https://juhoyoun.com", "https://www.juhoyoun.com"]
