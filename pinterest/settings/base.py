@@ -75,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "pinterest.wsgi.application"
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -94,7 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -105,7 +103,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -123,10 +120,13 @@ MEDIA_URL = "media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_REDIRECT_URL = reverse_lazy('home') # Class Based View 의 인자이므로 revese_lazy를 사용한다.
+LOGIN_REDIRECT_URL = reverse_lazy('home')  # Class Based View 의 인자이므로 revese_lazy를 사용한다.
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# HTTPS related setting
+SECURE_SSL_REDIRECT = True
