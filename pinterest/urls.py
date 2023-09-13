@@ -24,6 +24,7 @@ from landingpageapp.views import HomePageView
 urlpatterns = [
     # path('', ArticleListView.as_view(), name='home'),
     path('', HomePageView, name='home'),
+    path('stack/', include('landingpageapp.urls')),
     path("admin/", admin.site.urls),
     path("accounts/", include('accountapp.urls')),
     path("profiles/", include('profileapp.urls')),

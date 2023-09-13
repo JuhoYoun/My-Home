@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<!-- Adding a link to the Bootstrap CSS for styling -->
+
+<!-- Portfolio Section-->
+<section class="bg-light py-5">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <h2 class="text-center text-uppercase text-dark mb-5">django</h2>
+
+        <div class="mb-5">
+            <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                This website was developed using the Django web framework. </p>
+            <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                The following features and capabilities of Django were leveraged to create a robust and efficient website:
+            </p>
+            <div>
+                <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                    <b class="highlight">Django Class-Based Views (CBV):</b> The website's views were structured using Django's Class-Based Views, providing a modular and reusable approach to handle HTTP requests and serving content.
+                </li>
+                <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                    <b class="highlight">Django Authentication:</b> The website incorporates user registration, login, and authentication mechanisms, courtesy of Django's built-in authentication system.
+                </li>
+                <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                    <b class="highlight">Django Templates:</b> The website's user interface was crafted using Django's templating engine, offering a dynamic and consistent user experience.
+                </li>
+                <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                    <b class="highlight">Django Forms:</b> This provided a systematic way to handle user input, ensuring data validation and security.
+                </li>
+                <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                    <b class="highlight">Django ORM (Object-Relational Mapping):</b> This allowed for seamless interactions with the database, enabling efficient data storage and retrieval.
+                </li>
+                <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                    <b class="highlight">Django Static & Media Files Handling:</b> Efficiently managed the delivery and storage of static assets like CSS, JavaScript, and images, as well as user-uploaded media files.
+                </li>
+                <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                    <b class="highlight">Django Path Converters:</b> For creating Dynamic URLs within the site, Django's path converters were harnessed, allowing for greater flexibility in URL patterns and content delivery.
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="text-center text-uppercase text-dark mb-5">Tech Stack behind this website</h2>
+
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto">
+                <ul class="list-group text-center">
+                    <a href="/stack/django"><li class="list-group-item" style="background-color: #48A774; color: black;">Django</li></a>
+                    <a href="/stack/javascript_bootstrap"><li class="list-group-item" style="background-color: #F7DF1E; color: black;">JavaScript, Bootstrap</li></a>
+                    <a href="/stack/docker"><li class="list-group-item" style="background-color: #2496ED; color: black;">Docker</li></a>
+                </ul>
+            </div>
+            <div class="col-lg-4 me-auto">
+                <ul class="list-group text-center">
+                    <a href="/stack/mysql"><li class="list-group-item" style="background-color: #F29111; color: black;">MariaDB (MySQL)</li></a>
+                    <a href="/stack/nginx"><li class="list-group-item" style="background-color: #269539; color: black;">Nginx</li></a>
+                    <a href="/stack/certbot"><li class="list-group-item" style="background-color: #3488BF; color: black;">Certbot</li></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .list-group-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과를 부드럽게 */
+    }
+
+    .list-group-item:hover {
+        transform: scale(1.05); /* 약간 확대되는 효과 */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        cursor: pointer; /* 포인터 커서 표시 */
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Adjust width for larger screens */
+    @media (min-width: 768px) {
+        .container {
+            width: 90%;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container {
+            width: 80%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            width: 70%;
+        }
+    }
+
+    .highlight {
+    background-color: #ffff99;  /* 노란색 */
+    }
+</style>
+
+{% endblock %}

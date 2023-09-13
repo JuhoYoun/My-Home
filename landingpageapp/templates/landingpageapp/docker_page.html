@@ -9,17 +9,24 @@
 <section class="bg-light py-5">
     <div class="container">
         <!-- Portfolio Section Heading-->
-        <h2 class="text-center text-uppercase text-dark mb-5">Welcome!</h2>
+        <h2 class="text-center text-uppercase text-dark mb-5">Docker</h2>
 
-        <div class="text-center mb-5">
+        <div class="mb-5">
             <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
-                Welcome to my website!</p>
-            <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
-                I've crafted this space for you to read and write posts on various topics, interacting through comments and likes.
+                This website is efficiently containerized using Docker, bringing the following benefits into play:
             </p>
-            <p class="text-dark font-weight-bold" style="font-size: 1.2em;">
-                Feel free to explore and test! I'm eager to hear your feedback.
-            </p>
+            <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                <b class="highlight">Distinct Containers</b>: Specifically, <b class="highlight">Django, MariaDB, and Nginx</b> each run in their own dedicated containers, ensuring clean separation and optimal performance.
+            </li>
+            <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                <b class="highlight">Swarm Mode Activation:</b> With Swarm Mode, this website benefits from better orchestration and higher resilience.
+               </li>
+            <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                <b class="highlight"> Use of Docker Stack & Secret:</b> For deploying services on this site, Docker Stack is utilized, and sensitive data is securely managed using Docker Secret.
+            </li>
+            <li class="text-dark font-weight-bold" style="font-size: 1.2em;">
+                <b class="highlight">Data Persistence with Docker Volume:</b> Any data associated with the website is safeguarded through Docker Volume, ensuring it remains intact even if containers are restarted.
+            </li>
         </div>
     </div>
     <div class="container">
@@ -53,8 +60,8 @@
 
     .list-group-item:hover {
         transform: scale(1.05); /* 약간 확대되는 효과 */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important; /* 그림자 효과 */
-        cursor: pointer ; /* 포인터 커서 표시 */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        cursor: pointer; /* 포인터 커서 표시 */
     }
 
 .container {
