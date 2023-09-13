@@ -1,3 +1,15 @@
 <div>
-  <img src="{{ article.image.url }}" alt="">
+  <img class="card" src="{{ article.image.url }}" alt="">
 </div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 효과를 부드럽게 */
+    }
+
+    .card:hover {
+        transform: scale(1.05); /* 약간 확대되는 효과 */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+        cursor: pointer; /* 포인터 커서 표시 */
+    }
+</style>
