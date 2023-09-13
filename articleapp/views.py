@@ -11,6 +11,7 @@ from articleapp.models import Article
 from commentapp.forms import CommentCreationForm
 
 
+
 # Create your views here.
 @method_decorator(login_required, 'get')
 @method_decorator(login_required, 'post')
@@ -62,3 +63,7 @@ class ArticleListView(ListView):
     context_object_name = 'article_list'
     template_name = 'articleapp/list.html'
     paginate_by = 25
+
+    def get_queryset(self):  # get_queryset 메소드를 override
+        # order_by('?')를 사용하여 랜덤하게 객체를 가져옵니다.
+        return self.model.objects.order_by('?')

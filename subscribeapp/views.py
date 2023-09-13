@@ -32,11 +32,12 @@ class SubscriptionListView(ListView):
     model = Article
     context_object_name = 'article_list'
     template_name = 'subscribeapp/list.html'
-    paginate_by = 5
+    paginate_by = 25
 
     def get_queryset(self):
-        projects = Subscription.objects.filter(user=self.request.user).values_list('project')
-        article_list = Article.objects.filter(project__in=projects)
+        projects = Subscription.objects.filter(user=self.request.user).values_list('project', flat=True)
+        article_list = self.model.objects.filter(project__in=projects).order_by('-id')   # 여기 이상하게 -created_at 이라고 하면 정렬이 안되소 id로 해야 정렬이 된다
+
         return article_list
 
 

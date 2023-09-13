@@ -34,7 +34,7 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
             subscription = Subscription.objects.filter(user=user, project=project)
         else:
             subscription = None
-        object_list = Article.objects.filter(project=self.get_object())
+        object_list = Article.objects.filter(project=self.get_object()).order_by('-id')
         return super(ProjectDetailView, self).get_context_data(object_list=object_list, subscription=subscription,
                                                                **kwargs)
 
@@ -44,3 +44,8 @@ class ProjectListView(ListView):
     context_object_name = 'project_list'
     template_name = 'projectapp/list.html'
     paginate_by = 25
+
+
+    def get_queryset(self):  # get_queryset 메소드를 override
+        # order_by('?')를 사용하여 랜덤하게 객체를 가져옵니다.
+        return self.model.objects.order_by('?')
