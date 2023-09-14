@@ -35,9 +35,12 @@ services:
       - network
     volumes:
       - database:/var/lib/mysql
+    ports:
+      - 3306:3306
     secrets:
       - MARIADB_ROOT_PASSWORD
       - MARIADB_PASSWORD
+    command: --bind-address=0.0.0.0
     environment:
       MARIADB_DATABASE: django_homepage
       MARIADB_USER: jake
