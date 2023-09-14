@@ -287,20 +287,68 @@ MagicGrid.prototype.listen = function listen () {
 
 //module.exports = MagicGrid;
 
-let magicGrid = new MagicGrid({
-  container: '.container',
-  animate: true,
-  gutter: 12,
-  static: true,
-  useMin: true
+////////////// old code  ///////////
+//let magicGrid = new MagicGrid({
+//  container: '.container',
+//  animate: true,
+//  gutter: 12,
+//  static: true,
+//  useMin: true
+//});
+//
+//var masonrys = document.getElementsByTagName("img")
+//
+//for (let i = 0; i < masonrys.length; i++) {
+//    masonrys[i].addEventListener('load', function() {
+//        magicGrid.positionItems();
+//    }, false)
+//}
+//
+//magicGrid.listen();
+/////////////////////////
+
+//초기화 시점이 중요합니다. 모든 DOM 요소가 완전히 로드되지 않은 상태에서 MagicGrid를 초기화하면, 그리드 레이아웃이 제대로 동작하지 않을 가능성이 있습니다.
+//다음은 window.onload 이벤트를 사용하여 MagicGrid를 초기화하는 방법을 보여줍니다. window.onload 이벤트는 페이지에 있는 모든 리소스(이미지, 스크립트 파일, CSS 파일 등)가 로드된 후에 발생합니다.
+
+window.onload = function() {
+  let magicGrid = new MagicGrid({
+    container: '.container',
+    animate: true,
+    gutter: 12,
+    static: true,
+    useMin: true
+  });
+
+  var masonrys = document.getElementsByTagName("img")
+
+  for (let i = 0; i < masonrys.length; i++) {
+      masonrys[i].addEventListener('load', function() {
+          magicGrid.positionItems();
+      }, false)
+  }
+
+  magicGrid.listen();
+};
+
+//만약 DOM 요소만 로드되면 바로 초기화를 원한다면, DOMContentLoaded 이벤트를 사용할 수 있습니다. 이 이벤트는 스크립트, 이미지와 같은 외부 리소스가 로드되기 전에 발생합니다.
+document.addEventListener("DOMContentLoaded", function() {
+  let magicGrid = new MagicGrid({
+    container: '.container',
+    animate: true,
+    gutter: 12,
+    static: true,
+    useMin: true
+  });
+
+  var masonrys = document.getElementsByTagName("img")
+
+  for (let i = 0; i < masonrys.length; i++) {
+      masonrys[i].addEventListener('load', function() {
+          magicGrid.positionItems();
+      }, false)
+  }
+
+  magicGrid.listen();
 });
 
-var masonrys = document.getElementsByTagName("img")
-
-for (let i = 0; i < masonrys.length; i++) {
-    masonrys[i].addEventListener('load', function() {
-        magicGrid.positionItems();
-    }, false)
-}
-
-magicGrid.listen();
+// 결과적으로 모든 DOM 요소가 완전히 로드될 때 그리고 모든 리소스(이미지, 스크립트 파일, CSS 파일 등)가 로드된 후에 모두 MagicGrid를 초기화해야 에러가 없어졌다
