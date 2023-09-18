@@ -10,7 +10,7 @@
         <div class="mb-4">
             <h4>Create Post</h4>
         </div>
-        <form action="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data">
+        <form id="upload-form" action="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form form %}
             <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
@@ -19,5 +19,43 @@
 
 <!-- editible 클래스를 가진 요소들을 새로운 MediumEditor로 만들겠다고 선언한다 -->
 <script>var editor = new MediumEditor('.editable');</script>
+<script>
+// 이미지 사이즈 validator
+document.getElementById('upload-form').addEventListener('submit', function(e){
+    var fileInput = document.getElementById('image-upload');
+    var parentElement = fileInput.parentElement;
+
+    // 에러 메세지를 담은 span 태그를 생성합니다.
+    var errorSpan = document.createElement('span');
+    errorSpan.style.color = 'red';
+    errorSpan.id = 'dynamic-error-message';
+
+    // 파일이 선택되었는지 확인
+    if(fileInput.files.length > 0) {
+        var fileSize = fileInput.files[0].size; // 파일 크기를 바이트 단위로 가져옵니다.
+        var maxSize = 3 * 1024 * 1024; // 3MB
+
+        if(fileSize > maxSize) {
+            e.preventDefault();  // 폼 제출 중지
+            console.log(1)
+            // 이미 에러 메세지가 표시되어 있지 않으면 표시합니다.
+            if(!document.getElementById('dynamic-error-message')) {
+                errorSpan.textContent = 'The maximum file size that can be uploaded is 3MB';
+                parentElement.appendChild(errorSpan);
+                console.log(2)
+            }
+
+        } else {
+            // 이미 에러 메세지가 표시되어 있다면 제거합니다.
+            console.log(3)
+            var existingError = document.getElementById('dynamic-error-message');
+            if(existingError) {
+                console.log(4)
+                parentElement.removeChild(existingError);
+            }
+        }
+    }
+});
+</script>
 
 {% endblock %}

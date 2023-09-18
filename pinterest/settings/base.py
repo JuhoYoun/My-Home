@@ -130,3 +130,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # HTTPS related setting
 CSRF_TRUSTED_ORIGINS = ["https://juhoyoun.com", "https://www.juhoyoun.com"]
+
+# # 3MB 이하일 경우  메모리에 담는다   --MemoryFileUploadHandelr
+# # 3MB 이상일 초과 일경우 디스크에 담겨 전달 -- TemporaryFileUploadHandler
+FILE_UPLOAD_MAX_MEMORY_SIZE = 3 * 1024 * 1024
+DATA_UPLOAD_MAX_MEMORY_SIZE = 3 * 1024 * 1024
+
