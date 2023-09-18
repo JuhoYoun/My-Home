@@ -1,6 +1,5 @@
 from django.forms import ModelForm
 from django import forms
-
 from articleapp.models import Article
 from projectapp.models import Project
 

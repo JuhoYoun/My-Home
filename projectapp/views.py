@@ -2,11 +2,11 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import CreateView, DetailView, ListView
 from django.views.generic.list import MultipleObjectMixin
-
 from articleapp.models import Article
 from projectapp.forms import ProjectCreationForm
 from projectapp.models import Project
 from subscribeapp.models import Subscription
+from django.conf import settings
 
 
 # Create your views here.
@@ -18,6 +18,14 @@ class ProjectCreateView(CreateView):
 
     def get_success_url(self):
         return reverse('projectapp:detail', kwargs={'pk': self.object.pk})
+
+    def get_context_data(self, **kwargs):
+        # 기존의 context 데이터를 가져옵니다.
+        context = super().get_context_data(**kwargs)
+
+        # settings에서 MAX_IMAGE_SIZE 값을 가져와 context에 추가합니다.
+        context['max_image_size'] = settings.MAX_IMAGE_SIZE_MB
+        return context
 
 
 class ProjectDetailView(DetailView, MultipleObjectMixin):

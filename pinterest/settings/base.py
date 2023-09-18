@@ -136,3 +136,6 @@ CSRF_TRUSTED_ORIGINS = ["https://juhoyoun.com", "https://www.juhoyoun.com"]
 FILE_UPLOAD_MAX_MEMORY_SIZE = 3 * 1024 * 1024
 DATA_UPLOAD_MAX_MEMORY_SIZE = 3 * 1024 * 1024
 
+# Custom Settings
+MAX_IMAGE_SIZE = 3 * 1024 * 1024  # 3MB
+MAX_IMAGE_SIZE_MB = 3  # 3MB
